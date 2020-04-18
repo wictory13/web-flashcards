@@ -1,0 +1,29 @@
+.Board{
+
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.BoardPart{
+    margin: 5px;;
+    height: 43px;
+    width: 8.7%;
+}
+
+ul{
+    list-style-type: none;
+}
+
+div{
+    width: 500px;
+    float: left;
+}
+
+
+p{
+
+    color: black;
+    font-size: 30px;
+}
