@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './Board.css'
 import Card from "./Card";
 class Board extends React.Component {
@@ -7,17 +6,16 @@ class Board extends React.Component {
     constructor(props){
         super(props);
         this.newTurn = true;
+        this.state ={
+            gameEnd:false,
+            score: 0,
+        };
     }
 
-    state ={
-        gameEnd:false,
-        score: 0
-};
     changeCurCell = (i) => {
         this.setState({score: this.state.score + 3});
-        return   <Card type={0} number={1} changeCurCell={this.changeCurCell} words ={[['Привет', 'Кот'],['Hi','Cat']]}/>
-
     };
+
     render() {
         if (this.newTurn)
             this.newTurn = false;

@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
-import Board from "./Board"
+import Main from "./Main.js"
+import {BrowserRouter as Router} from 'react-router-dom';
 
 function App() {
   return (
-      <div className="App">
-          <h1>Welcom! This game is Flash Card</h1>
-          <Board/>
-      </div>
+      <Router>
+          <div className="App">
+              <Main/>
+          </div>
+      </Router>
   );
 }
 
