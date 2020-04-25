@@ -1,20 +1,20 @@
-import React from "react";
+import React, {Component} from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
+import SignUp from "./SingUp";
+import {LoginContextConsumer} from "./LoginContext";
 
 // потом будут компоненты которые прорисовываю форму и отправляют ее данные на сервер
-const SignUp = ()=>(
-    <h2>SignUp</h2>
-)
+
 const SignIn = ()=>(
     <h2>SignIn</h2>
 )
 
 const Profile = ()=>(
-    <h2>SignIn</h2>
+    <LoginContextConsumer>{context => (<h2>{context.login}</h2>)}</LoginContextConsumer>
 )
 
 const Play = ()=>(
-    <h2>SignIn</h2>
+    <h2>Play</h2>
 )
 
 class Main extends Component {
@@ -26,7 +26,7 @@ class Main extends Component {
         }
     }
     componentDidMount(){
-        this.getCardsCollection();
+        //this.getCardsCollection();
     }
     async getCardsCollection(){
         let result = await fetch(`/getAllCards`).catch(error=>console.log(error));
