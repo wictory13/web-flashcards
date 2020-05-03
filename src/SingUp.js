@@ -9,8 +9,9 @@ class SignUp extends Component {
         super(props);
         this.login = null;
         this.state = {
-            redirect: false,
+            redirectProfile: false,
             error: '',
+            redirectSignIn: false,
         }
         this.sentData = this.sentData.bind(this);
     }
@@ -40,7 +41,7 @@ class SignUp extends Component {
         this.login = "admin";
         this.setState({redirect: true});
         return ;
-        //когда появится back должно работать
+        //когда появится back должно работать возможно будет другой метод
         // let [status, statusText] = ['', ''];
         // e.preventDefault();
         // const response = await this.sentFetch(e);
@@ -58,10 +59,9 @@ class SignUp extends Component {
     }
 
     render(){
-        if (this.state.redirect) {
+        if (this.state.redirectProfile) {
             return (<LoginContextConsumer>{context => {
                     setTimeout(context.setLogin,0,this.login);
-                    // context.setLogin(this.login);
                     return (<Redirect to={'/profile'}/>)
                 }
             }
@@ -71,6 +71,8 @@ class SignUp extends Component {
             return (<div><div><p>{this.state.error}
             Sorry, please try later.</p><button onClick={this.returnBack}>Ok</button></div></div>);
         }
+        if (this.state.redirectSignIn)
+            return (<Redirect to={'/singIn'}/>);
         return (<div>
             <form onSubmit={this.sentData} className='SignUp'>
                 <input type='email' name='email' placeholder='Enter your email' defaultValue='test@gmail.com'/>
@@ -85,6 +87,7 @@ class SignUp extends Component {
                 {/*</p>*/}
                 <button>Sign Up</button>
             </form>
+            <button onClick={(_) => this.setState({redirectSignIn: true})}>Also registration</button>
         </div>);
     }
 }

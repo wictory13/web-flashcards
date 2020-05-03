@@ -3,11 +3,18 @@ import './Card.css'
 
 
 class Card extends React.Component {
+    constructor(props){
+        super(props);
+        this.state= {
+            languageIsNative: true,
+        }
+    }
+
+    changeLanguage = () => this.setState({languageIsNative: !this.state.languageIsNative})
+
     render() {
-        //let words = [['Привет', 'Кот'],['Hi','Cat']];
-        let props = this.props;
-        return <div className="card" onClick={function (){props.changeCurCell(props.number)}}>
-            {props.words[props.type][props.number]}
+        return <div className="card">
+            <h1>{this.state.languageIsNative ? this.props.nativeWord : this.props.foreignerWord}</h1>
         </div>
     }
 
