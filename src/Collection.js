@@ -1,48 +1,19 @@
-import React, { Component } from "react";
-import {Redirect} from 'react-router';
-import Card from "./Card";
+import React from "react";
+import {Link} from "react-router-dom";
 
-class Collection extends Component {
-    constructor(props){
-        super(props);
-        this.idCollection = this.props.id;
-        this.state={
-            name: this.props.name,
-            describe: this.props.describe,
-            isCheck: false,
-            isShow: false,
-        }
-    }
-
-
-    render() {
-        if (isCheck){
-            return (<Redirect to={{
-                pathname: '/check',
-                state: { idCollection: this.idCollection}
-            }}
-            />)
-        }
-
-        if (isShow){
-            return (<Redirect to={{
-                pathname: '/show',
-                state: { idCollection: this.idCollection}
-            }}
-            />)
-        }
+const Collection = (props) =>{
         return (
             <div>
                 <div>
-                    <h2>{this.state.name}</h2>
-                    <p>{this.state.describe}</p>
+                    <h2>{props.name}</h2>
+                    <p>{`Количество карточек в коллекции ${props.count}`}</p>
                 </div>
-                <button onClick={() => this.setState({isShow: true})}>Посмотреть коллекцию</button>
-                <button onClick={() => this.setState({isCheck:true})}>Проверить себя</button>
+                <Link to={`/show/${props.id}/${props.name}/${props.count}`}>Посмотреть коллекцию</Link>
+                <Link to={`/check/${props.id}/${props.name}/${props.count}`}>Проверить себя</Link>
+                <button>Удалить коллекцию</button>
             </div>
 
         )
-    }
 }
 
 export default Collection;

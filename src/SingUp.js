@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import {Redirect} from 'react-router';
+import {Link} from "react-router-dom";
+
 import {LoginContextConsumer} from "./LoginContext";
 
 const namesForm = ['email', 'login', 'firstName', 'password'];
@@ -9,14 +10,10 @@ class SignUp extends Component {
         super(props);
         this.login = null;
         this.state = {
-            redirectProfile: false,
-            error: '',
-            redirectSignIn: false,
+            errMessage: '',
         }
         this.sentData = this.sentData.bind(this);
     }
-
-    returnBack = () => this.setState({error: ''});
 
     getDataForm(e){
         const form = document.querySelector('.SingUp');
@@ -59,20 +56,11 @@ class SignUp extends Component {
     }
 
     render(){
-        if (this.state.redirectProfile) {
-            return (<LoginContextConsumer>{context => {
-                    setTimeout(context.setLogin,0,this.login);
-                    return (<Redirect to={'/profile'}/>)
-                }
-            }
-            </LoginContextConsumer>);
+
+        if (this.state.errMessage) {
+            return (<div><div><p>{this.state.errMessage}
+            Sorry, please try later.</p><Link to={'/signUp'}>Ok</Link></div></div>);
         }
-        if (this.state.error) {
-            return (<div><div><p>{this.state.error}
-            Sorry, please try later.</p><button onClick={this.returnBack}>Ok</button></div></div>);
-        }
-        if (this.state.redirectSignIn)
-            return (<Redirect to={'/singIn'}/>);
         return (<div>
             <form onSubmit={this.sentData} className='SignUp'>
                 <input type='email' name='email' placeholder='Enter your email' defaultValue='test@gmail.com'/>
@@ -80,14 +68,9 @@ class SignUp extends Component {
                 <input type='text' name='firstName' placeholder='Enter your First Name' defaultValue='user'/>
                 {/*<input type='text' name='lastName' placeholder='Enter your Last Name' defaultValue='user'/>*/}
                 <input type='password' name='password' placeholder='Enter password' defaultValue='123456'/>
-                {/*<input type='date' name='dateOfBirth' placeholder='Enter your birthday' defaultValue='2019-01-19'/>*/}
-                {/*<p> Your gender:*/}
-                {/*    <input type="radio" name="sex" value='MALE' defaultChecked={true}/> Male*/}
-                {/*    <input type="radio" name="sex" value='FEMALE'/> Female*/}
-                {/*</p>*/}
-                <button>Sign Up</button>
+                <button>Зарегестрироваться</button>
             </form>
-            <button onClick={(_) => this.setState({redirectSignIn: true})}>Also registration</button>
+            <Link to={'/'}>Уже зарегестрирован</Link>
         </div>);
     }
 }

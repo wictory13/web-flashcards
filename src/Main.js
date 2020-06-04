@@ -1,42 +1,44 @@
 import React, {Component} from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import SignUp from "./SingUp";
+import SignIn from "./SingIn";
 import {LoginContextConsumer} from "./LoginContext";
-import Profile from "./Profile";
+import Home from "./Home";
+import CollectionForWork from "./CollectionForWork"
+
+import cookie from 'react-cookies';
 
 // потом будут компоненты которые прорисовываю форму и отправляют ее данные на сервер
+//state login...
+//модули css
+//данные в ссылки
+//все расложить по папочкам
 
-const SignIn = ()=>(
-    <h2>SignIn</h2>
-)
-
-const CheckBoard = ()=>(
-    <h2>CheckBoard</h2>
-)
-
-const ShowBoard = ()=>(
-    <h2>ShowBoard</h2>
-)
 
 class Main extends Component {
 
     constructor(props) {
         super(props);
+        this.state= {
+            login: null,
+            name: null,
+        }
     }
-    componentDidMount(){
-        //this.getCardsCollection();
+
+    changeUserData = (login, name) => {
+        this.setState((state, _) => ({login: login || state.login, name: name || state.name}))
     }
+
 
     render() {
         return (
             <LoginContextConsumer>{ context =>
                 <Router>
                     <div className='App'>
-                        <Route exact path='/' component={SignUp}/>
-                        <Route exact path='/signIn' component={SignIn}/>
-                        <Route path='/profile' component={() => <Profile login={context.login}/>}/>
-                        <Route path='/check' component={CheckCollection}/>
-                        <Route path='/show' component={ShowCollection}/>
+                        <Route exact path='/' component={() => this.state.login ? <Home userData={{login: this.state.login, name: this.state.name}}/> : <SignIn changeUserData={this.changeUserData}/>}/>
+                        <Route path='/signUp' component={SignUp}/>
+                        <Route path='/check/:id/:name/:count' component={CollectionForWork}/>
+                        <Route path='/show/:id/:name/:count' component={CollectionForWork}/>
                     </div>
                 </Router>
             }
