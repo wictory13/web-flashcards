@@ -35,11 +35,12 @@ class CollectionForWork extends Component {
     setAnswer = (answerUser) => this.setState((state, _) => ({answerUser: answerUser, languageIsNative: !state.languageIsNative}));
 
     nextWord = (isRight) => {
+        //вынести state
         this.setState((state, props) => {
                 const newIndex = (state.curIndex + 1);
                 if (newIndex === +props.match.params.count)
                     return isRight ? {endCheck: true, score: state.score + 1, languageIsNative: false, answerUser: null}
-                : {endCheck: true, languageIsNative: false, answerUser: null};
+                        : {endCheck: true, languageIsNative: false, answerUser: null};
                 return isRight ? {curIndex: newIndex, score: state.score + 1, languageIsNative: false, answerUser: null}
                 : {curIndex: newIndex, languageIsNative: false, answerUser: null};
             }
@@ -53,7 +54,7 @@ class CollectionForWork extends Component {
                 {id: 2, word: 'dog', translation: 'собака', img: 'https://cs2.livemaster.ru/storage/a6/c2/c07137d2f3df108be9971f9aa3qm--kukly-i-igrushki-vojlochnaya-igrushka-fedenka-sobachka-iz-she.jpg'},
                 {id: 3, word: 'penguin', translation:'пингвин', img:'https://i.pinimg.com/originals/c6/96/41/c69641a5d9a63081e22a8ae51c145505.jpg'}]});
     }
-
+//разбить по функции
     render() {
         if (!this.state.cards)
             return '';

@@ -6,7 +6,7 @@ class Card extends React.Component {
     constructor(props){
         super(props);
     }
-
+//удаление карточки оповистить коллекцию
     deleteCurCard = (_) =>{
       fetch('api/cards/delete',{
           method: 'DELETE',

@@ -13,6 +13,8 @@ import cookie from 'react-cookies';
 //модули css
 //данные в ссылки
 //все расложить по папочкам
+//в режиме проверки перемешанные карты показывать чаще которые не знает
+//componentDidMount get User смотрим залогинин или нет
 
 
 class Main extends Component {
@@ -29,7 +31,7 @@ class Main extends Component {
         this.setState((state, _) => ({login: login || state.login, name: name || state.name}))
     }
 
-
+//count не нужно
     render() {
         return (
             <LoginContextConsumer>{ context =>
