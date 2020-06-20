@@ -42,8 +42,10 @@ class Card extends React.Component {
             </div>
             </div>
         }
-        return (<div className="card">
-            {curWord}
+        return (<div className="card" >
+            <div className="uk-panel-box check">
+                {curWord}
+                </div>
         </div>)
 
     }

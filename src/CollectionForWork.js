@@ -62,8 +62,9 @@ class CollectionForWork extends Component {
         if(this.state.endCheck){
             return (
                 <div>
-                    <p>Вы запомнили {this.state.score} из {this.props.match.params.count}</p>
-                    <Link to={'/'}>Ок</Link>
+                <div id="gameover"  className="death">
+                    Вы запомнили {this.state.score} из {this.props.match.params.count}</div>
+                    <Link className="link" to={'/'}>Вернуться в меню</Link>
                 </div>
             )
         }
@@ -76,7 +77,7 @@ class CollectionForWork extends Component {
                     <div id="board" className="bottom-panel-management">
                     <div id="speechBtn" className="bottom-panel-button board first" data-uk-button-checkbox
                          data-uk-tooltip="{pos:'bottom'}" >
-                        <button id="btnVoice" className="uk-button uk-width-1-2 npm run start"
+                        <button id="btnVoice" className="uk-button uk-width-1-2"
                                 onClick={(_) => this.changeIndex(-1)}> Назад
                         </button>
                     </div>
@@ -96,16 +97,39 @@ class CollectionForWork extends Component {
         if (this.state.answerUser === null){
             return (<div>
                 <Card isShow={false} word={word} curCard={curCard}/>
-                <button onClick={(_) => this.setAnswer(false)}>Не знаю</button>
-                <button onClick={(_) => this.setAnswer(true)}>Знаю</button>
+                <div id="speechBtn" className="bottom-panel-button board first" data-uk-button-checkbox
+                     data-uk-tooltip="{pos:'bottom'}" >
+                    <button id="btnVoice" className="uk-button no"
+                            onClick={(_) => this.setAnswer(false)}>Не помню
+                    </button>
+                </div>
+                <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox
+                     data-uk-tooltip="{pos:'bottom'}" >
+                    <button id="btnVoice" className="uk-button yes"
+                            onClick={(_) => this.setAnswer(true)}>Помню
+                    </button>
+                </div>
+
             </div>)
         }
 
         return (
             <div>
                 <Card isShow={false} word={word} curCard={curCard}/>
-                <button onClick={(_) => this.nextWord(this.state.answerUser)}>Продолжить</button>
-                {this.state.answerUser ? <button onClick={(_) => this.nextWord(false)}>Ошибся</button>:''}
+                <div id="speechBtn" className="bottom-panel-button board first" data-uk-button-checkbox
+                     data-uk-tooltip="{pos:'bottom'}" >
+                    <button id="btnVoice" className="uk-button uk-width-1-2"
+                            onClick={(_) => this.nextWord(this.state.answerUser)}>Продолжить
+                    </button>
+                </div>
+                {this.state.answerUser ?
+                <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox
+                     data-uk-tooltip="{pos:'bottom'}" >
+                    <button id="btnVoice" className="uk-button uk-width-1-2"
+                            onClick={(_) => this.nextWord(false)}>Ошибся
+                    </button>
+                </div>:''}
+
             </div>
         )
 
