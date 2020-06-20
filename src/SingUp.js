@@ -81,7 +81,7 @@ class SignUp extends Component {
 
                 </div>
             </form>
-            <Link className="uk-button uk-width-1-2" to={'/'}>Уже зарегестрирован</Link>
+            <Link className="uk-button uk-width-1-2" to={'/'}>Уже зарегистрирован</Link>
         </div>);
     }
 }
