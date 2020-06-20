@@ -72,11 +72,11 @@
 }
 
 #gameover.death {
-    background: #CEA640;
-    color: #FFF79A;
     -webkit-margin-after: 20%;
 }
 #gameover {
+    background: #CEA640;
+    color: #FFF79A;
     display: block;
     font-family: 'Roboto', sans-serif;
     padding: 3vmin;

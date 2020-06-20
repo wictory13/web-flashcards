@@ -43,10 +43,13 @@ p{
 
     padding: 3vmin 3vmin 3vmin;
     float: none;
+    display: flex;
+    flex-direction: column;
+
 
 }
 .bottom-panel-button {
-    width: 100%;
+
     margin-bottom: 2vmin;
 }
 

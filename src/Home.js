@@ -1,5 +1,8 @@
 import React from 'react';
 import Collection from "./Collection";
+import './Home.css'
+import './CollectionForWork.css'
+import {Link} from "react-router-dom";
 
 
 class Home extends React.Component {
@@ -28,13 +31,18 @@ class Home extends React.Component {
         const curCollections = this.state.collections ? this.state.collections.map(e => <Collection key={e.id} name={e.name} count={e.cardsCount} id={e.id}/>) : '';
         return (
             <div>
-                <div>
-                    <h1>Добро пожаловать, {this.props.userData.name}!</h1>
-                </div>
-                <div>
-                    <h2>Ваши коллекции:</h2>
+
+                    <div id="gameover" >
+                        <h2>Добро пожаловать, {this.props.userData.name}!</h2>
+                        <h>Ваши коллекции:</h>
+                    </div>
+                <div id="table" className="table" >
                     {curCollections}
-                    <button>Создать новую коллекцию</button>
+                </div>
+
+
+                <div>
+                    <button className="link">Создать новую коллекцию</button>
                 </div>
             </div>
         )

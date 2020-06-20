@@ -1,0 +1,33 @@
+.collection{
+    padding: 6px;
+    flex: 1 0 20%;
+    flex-direction: column;
+    display: flex;
+    min-width: 20%;
+    /* min-height: 20%; */
+    box-sizing: border-box;
+    text-align: center;
+    text-transform: uppercase;
+    /* font-style: italic; */
+    font-weight: bold;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 0.5px;
+    font-size: 4vmin;
+    align-self: stretch;
+    user-select: none;
+}
+.box {
+    padding: 15px;
+    background: #fafafa;
+    color: #444;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.home-card{
+    width: 40%;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 25%;
+    margin-right: 25%;
+
+}
