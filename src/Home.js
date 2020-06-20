@@ -32,7 +32,7 @@ class Home extends React.Component {
         return (
             <div>
 
-                    <div id="gameover" >
+                    <div id="game" >
                         <h2>Добро пожаловать, {this.props.userData.name}!</h2>
                         <h>Ваши коллекции:</h>
                     </div>

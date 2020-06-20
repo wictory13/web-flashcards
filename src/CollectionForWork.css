@@ -71,10 +71,10 @@
     color: #DECDA5;
 }
 
-#gameover.death {
+#game.death {
     -webkit-margin-after: 20%;
 }
-#gameover {
+#game {
     background: #CEA640;
     color: #FFF79A;
     display: block;

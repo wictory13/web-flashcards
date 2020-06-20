@@ -62,7 +62,7 @@ class CollectionForWork extends Component {
         if(this.state.endCheck){
             return (
                 <div>
-                <div id="gameover"  className="death">
+                <div id="game"  className="death">
                     <h2>Вы запомнили {this.state.score} из {this.props.match.params.count}</h2>
                 </div>
                     <Link className="link" to={'/'}>Вернуться в меню</Link>

@@ -11,7 +11,7 @@ const Collection = (props) =>{
                     <h2>{props.name}</h2>
                     <h>{`Количество карточек в коллекции ${props.count}`}</h>
                 </div>
-                    <div className="bottom-panel-actions">
+                    <div className="bottom-panel-actions home-panel">
                         <div id="speechBtn" className="bottom-panel-button home-card" data-uk-button-checkbox
                              data-uk-tooltip="{pos:'bottom'}" >
                             <Link id="btnVoice" className="uk-button uk-width-1-1"

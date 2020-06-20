@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Link} from "react-router-dom";
+import './SingIn.css'
 import cookie from 'react-cookies';
 
 const namesForm = ['email','password'];
@@ -58,12 +59,23 @@ class SignIn extends Component{
                 <br/>Sorry, please try later.</p><Link to={'/'}>Ok</Link></div></div>);
         };
         return(<div>
-            <form onSubmit={this.sentData}>
-                <input type='email' name='email' placeholder='Enter your email' defaultValue='test@gmail.com'/>
-                <input type='password' name='password' placeholder='Enter your password' defaultValue='123456'/>
-                <button >Войти</button>
+            <div id="game"  >
+                <h2>Вход в приложение</h2>
+            </div>
+            <form   onSubmit={this.sentData}>
+            <div className="form">
+                <input className="input" type='email' name='email' placeholder='Enter your email' defaultValue='test@gmail.com'/>
+                <input  className="input" type='password' name='password' placeholder='Enter your password' defaultValue='123456'/>
+            </div>
+
+                <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox
+                     data-uk-tooltip="{pos:'bottom'}" >
+                    <button id="btnVoice" className="uk-button uk-width-1-2 first">
+                        Войти
+                    </button>
+                </div>
             </form>
-            <Link to={'/signUp'}>Зарегестрироваться</Link>
+            <Link cid="btnVoice" className="uk-button uk-width-1-2" to={'/signUp'}>Зарегистрироваться</Link>
         </div>)
     }
 }
