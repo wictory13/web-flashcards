@@ -1,0 +1,43 @@
+.bottom-panel-management {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.uk-width-1-2 {
+    width: 20%;
+
+    background-image: -webkit-linear-gradient(top,#DECDA5,#DECDA0);
+    background-image: linear-gradient(to bottom,#DECDA5,#DECD8F);
+}
+
+.first{
+
+    margin-top: 2vmin;
+}
+
+.link {
+    width: 20%;
+
+
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 15px 39%;
+    padding: 15px 20px;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+
+    border-radius: 10px;
+    color: #40382D;
+    box-shadow: inset 0 -5px 0 #40382D;
+    background-image: linear-gradient(to bottom,#fff,#eee);
+    border: 1px solid rgba(0,0,0,.2);
+    border-bottom-color: rgba(0,0,0,.3);
+}
+.link:hover {
+    box-shadow: inset 0 -60px 0 #40382D, 2px 2px 3px rgba(0,0,0,0.3);
+    color: #DECDA5;
+}

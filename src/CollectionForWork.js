@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {Redirect} from 'react-router';
 import Card from "./Card";
+import './CollectionForWork.css'
 import {Link} from "react-router-dom";
 
 class CollectionForWork extends Component {
@@ -72,9 +73,22 @@ class CollectionForWork extends Component {
             return (
                 <div>
                     <Card isShow={true} word={word} curCard={curCard} idCollection={this.props.match.params.id} changeLanguage={this.changeLanguage}/>
-                    <button onClick={(_) => this.changeIndex(-1)}> Назад</button>
-                    <button onClick={(_) => this.changeIndex(1)}> Вперед</button>
-                    <Link to={'/'}>Вернуться к коллекциям</Link>
+                    <div id="board" className="bottom-panel-management">
+                    <div id="speechBtn" className="bottom-panel-button board first" data-uk-button-checkbox
+                         data-uk-tooltip="{pos:'bottom'}" >
+                        <button id="btnVoice" className="uk-button uk-width-1-2 npm run start"
+                                onClick={(_) => this.changeIndex(-1)}> Назад
+                        </button>
+                    </div>
+                    <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox
+                         data-uk-tooltip="{pos:'bottom'}" >
+                        <button id="btnVoice" className="uk-button uk-width-1-2"
+                                onClick={(_) => this.changeIndex(1)}> Вперед
+                        </button>
+                    </div>
+
+                    <Link  className="link" to={'/'}>Вернуться к коллекциям</Link>
+                </div>
                 </div>
             )
         }
