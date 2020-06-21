@@ -15,13 +15,13 @@ const Collection = (props) =>{
                         <div id="speechBtn" className="bottom-panel-button home-card" data-uk-button-checkbox
                              data-uk-tooltip="{pos:'bottom'}" >
                             <Link id="btnVoice" className="uk-button uk-width-1-1"
-                                  to={`/show/${props.id}/${props.name}/${props.count}`}>Посмотреть коллекцию
+                                  to={`/show/${props.id}/${props.name}`}>Посмотреть коллекцию
                             </Link>
                         </div>
                         <div id="speechBtn" className="bottom-panel-button home-card" data-uk-button-checkbox
                              data-uk-tooltip="{pos:'bottom'}" >
                             <Link id="btnVoice" className="uk-button uk-width-1-1"
-                                  to={`/check/${props.id}/${props.name}/${props.count}`}>Проверить себя
+                                  to={`/check/${props.id}/${props.name}`}>Проверить себя
                             </Link>
                         </div>
                         <div id="speechBtn" className="bottom-panel-button home-card" data-uk-button-checkbox

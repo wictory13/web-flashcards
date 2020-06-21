@@ -31,10 +31,10 @@ class SignIn extends Component{
             method: "POST",
             body: JSON.stringify(this.getDataForm(e))
         });
-        this.processData(response);
+        await this.processResponseLogin(response);
     }
 
-    async processData(response) {
+    async processResponseLogin(response) {
         if (response && response.ok) {
             const payload = await response.json();//жду token и username пользователя
             cookie.save('token', payload.token ,{ path: '/'});
@@ -56,7 +56,7 @@ class SignIn extends Component{
             <div id="game"  >
                 <h2>Вход в приложение</h2>
             </div>
-            <form   onSubmit={this.onLogin}>
+            <form onSubmit={this.onLogin}>
             <div className="form">
                 <input className="input" type='text' name='login' placeholder='Enter your login' defaultValue='user'/>
                 <input  className="input" type='password' name='password' placeholder='Enter your password' defaultValue='123456'/>
