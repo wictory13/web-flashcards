@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Redirect} from 'react-router';
-import Card from "./Card";
+import Card from "../Card/Card";
 import './CollectionForWork.css'
 import {Link} from "react-router-dom";
 

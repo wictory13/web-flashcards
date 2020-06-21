@@ -1,7 +1,7 @@
 import React from 'react';
-import Collection from "./Collection";
+import Collection from "../Collection/Collection";
 import './Home.css'
-import './CollectionForWork.css'
+import '../CollectionForWork/CollectionForWork.css' //и вот здесь смущает
 import {Link} from "react-router-dom";
 
 

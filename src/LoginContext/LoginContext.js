@@ -3,7 +3,7 @@ const { Provider, Consumer } = React.createContext();
 
 class LoginContextProvider extends Component {
     state = {
-        login: null
+        token: null
     };
 
     setLogin = (value) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import './Collection.css'
-import './Card.css'
+import '../Card/Card.css' //вот здесь меня смущает
 
 const Collection = (props) =>{
         return (

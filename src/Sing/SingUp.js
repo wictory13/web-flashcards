@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {Link} from "react-router-dom";
 
-import {LoginContextConsumer} from "./LoginContext";
+import {LoginContextConsumer} from "../LoginContext/LoginContext";
 
 const namesForm = ['email', 'login', 'firstName', 'password'];
 
@@ -10,7 +10,7 @@ class SignUp extends Component {
         super(props);
         this.login = null;
         this.state = {
-            errMessage: '',
+            errMessage: null,
         }
         this.sentData = this.sentData.bind(this);
     }
@@ -24,7 +24,7 @@ class SignUp extends Component {
     }
 
     sentFetch(e){
-        return fetch("/signup", {
+        return fetch("/api/users/create", {
             headers:{
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
