@@ -12836,11 +12836,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Виктория\\Desktop\\FlashcardsProject\\FlashcardsApi\\FlashcardsApi.csproj",
+      "projectUniqueName": "C:\\Users\\Виктория\\Desktop\\web-flashcards\\backend\\FlashcardsApi\\FlashcardsApi.csproj",
       "projectName": "FlashcardsApi",
-      "projectPath": "C:\\Users\\Виктория\\Desktop\\FlashcardsProject\\FlashcardsApi\\FlashcardsApi.csproj",
+      "projectPath": "C:\\Users\\Виктория\\Desktop\\web-flashcards\\backend\\FlashcardsApi\\FlashcardsApi.csproj",
       "packagesPath": "C:\\Users\\Виктория\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Виктория\\Desktop\\FlashcardsProject\\FlashcardsApi\\obj\\",
+      "outputPath": "C:\\Users\\Виктория\\Desktop\\web-flashcards\\backend\\FlashcardsApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12859,8 +12859,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Виктория\\Desktop\\FlashcardsProject\\Flashcards\\Flashcards.csproj": {
-              "projectPath": "C:\\Users\\Виктория\\Desktop\\FlashcardsProject\\Flashcards\\Flashcards.csproj"
+            "C:\\Users\\Виктория\\Desktop\\web-flashcards\\backend\\Flashcards\\Flashcards.csproj": {
+              "projectPath": "C:\\Users\\Виктория\\Desktop\\web-flashcards\\backend\\Flashcards\\Flashcards.csproj"
             }
           }
         }

@@ -52,7 +52,12 @@ namespace FlashcardsApi.Controllers
                         SecurityAlgorithms.HmacSha256));
             var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
 
-            return Ok(encodedJwt);
+            var response = new
+            {
+                token = encodedJwt,
+                username = identity.Name
+            };
+            return Ok(response);
         }
 
         private async Task<ClaimsIdentity> GetIdentity(string login, string password, CancellationToken token = default(CancellationToken))

@@ -49,7 +49,11 @@ namespace FlashcardsApi.Controllers
                 return Forbid();
 
             await cardStorage.AddCard(newCard, token);
-            return Ok("Card created");
+            var response = new
+            {
+                idCard = newCard.Id
+            };
+            return Ok(response);
         }
 
         [HttpDelete("delete")]

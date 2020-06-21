@@ -5717,11 +5717,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Виктория\\Desktop\\FlashcardsProject\\Flashcards\\Flashcards.csproj",
+      "projectUniqueName": "C:\\Users\\Виктория\\Desktop\\web-flashcards\\backend\\Flashcards\\Flashcards.csproj",
       "projectName": "Flashcards",
-      "projectPath": "C:\\Users\\Виктория\\Desktop\\FlashcardsProject\\Flashcards\\Flashcards.csproj",
+      "projectPath": "C:\\Users\\Виктория\\Desktop\\web-flashcards\\backend\\Flashcards\\Flashcards.csproj",
       "packagesPath": "C:\\Users\\Виктория\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Виктория\\Desktop\\FlashcardsProject\\Flashcards\\obj\\",
+      "outputPath": "C:\\Users\\Виктория\\Desktop\\web-flashcards\\backend\\Flashcards\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

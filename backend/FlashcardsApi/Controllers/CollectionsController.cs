@@ -38,7 +38,12 @@ namespace FlashcardsApi.Controllers
             var newCollection = new Collection(name, User.Identity.Name);
             await collectionStorage.AddCollection(newCollection, token);
 
-            return Ok("Collection created");
+            var response = new
+            {
+                idCollection = newCollection.Id
+            };
+            return Ok(response);
+
         }
 
         [Authorize]
