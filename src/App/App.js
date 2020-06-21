@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
-import Board from "./Board"
+import Main from "../Main/Main.js"
 
 function App() {
   return (
       <div className="App">
-          <h1>Welcom! This game is Flash Card</h1>
-          <Board/>
+          <Main/>
       </div>
   );
 }
