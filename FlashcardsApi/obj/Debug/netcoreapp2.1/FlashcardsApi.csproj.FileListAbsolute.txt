@@ -1,0 +1,70 @@
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.csprojAssemblyReference.cache
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.RazorAssemblyInfo.cache
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.RazorAssemblyInfo.cs
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.AssemblyInfoInputs.cache
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.AssemblyInfo.cs
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\appsettings.Development.json
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\appsettings.json
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.deps.json
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.runtimeconfig.json
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.runtimeconfig.dev.json
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.dll
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.pdb
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\Flashcards.dll
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\Flashcards.pdb
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.RazorTargetAssemblyInfo.cache
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.csproj.CopyComplete
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.dll
+D:\study\3 kurs\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.pdb
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.csprojAssemblyReference.cache
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.csproj.CoreCompileInputs.cache
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.RazorAssemblyInfo.cache
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.RazorAssemblyInfo.cs
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.AssemblyInfoInputs.cache
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.AssemblyInfo.cs
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.dll
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.pdb
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.deps.json
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.runtimeconfig.json
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.runtimeconfig.dev.json
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.dll
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.pdb
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\Flashcards.dll
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\bin\Debug\netcoreapp2.1\Flashcards.pdb
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.RazorTargetAssemblyInfo.cache
+C:\Users\Виктория\Desktop\FlashcardsProject\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.csproj.CopyComplete
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.deps.json
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.runtimeconfig.json
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.runtimeconfig.dev.json
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.dll
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.pdb
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\bin\Debug\netcoreapp2.1\Flashcards.dll
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\bin\Debug\netcoreapp2.1\Flashcards.pdb
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.csprojAssemblyReference.cache
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.csproj.CoreCompileInputs.cache
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.RazorAssemblyInfo.cache
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.RazorAssemblyInfo.cs
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.AssemblyInfoInputs.cache
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.AssemblyInfo.cs
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.RazorTargetAssemblyInfo.cache
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.csproj.CopyComplete
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.dll
+C:\Users\Виктория\Desktop\web-flashcards\backend\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.pdb
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.deps.json
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.runtimeconfig.json
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.runtimeconfig.dev.json
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.dll
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\bin\Debug\netcoreapp2.1\FlashcardsApi.pdb
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\bin\Debug\netcoreapp2.1\Flashcards.dll
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\bin\Debug\netcoreapp2.1\Flashcards.pdb
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.csprojAssemblyReference.cache
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.csproj.CoreCompileInputs.cache
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.RazorAssemblyInfo.cache
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.RazorAssemblyInfo.cs
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.AssemblyInfoInputs.cache
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.AssemblyInfo.cs
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.RazorTargetAssemblyInfo.cache
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.csproj.CopyComplete
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.dll
+C:\Users\Виктория\Desktop\web-flashcards\FlashcardsApi\obj\Debug\netcoreapp2.1\FlashcardsApi.pdb

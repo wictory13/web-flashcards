@@ -1,0 +1,35 @@
+C:\Users\Виктория\Desktop\FlashcardsProject\Flashcards\bin\Debug\netcoreapp2.1\Flashcards.deps.json
+C:\Users\Виктория\Desktop\FlashcardsProject\Flashcards\bin\Debug\netcoreapp2.1\Flashcards.dll
+C:\Users\Виктория\Desktop\FlashcardsProject\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.csprojAssemblyReference.cache
+C:\Users\Виктория\Desktop\FlashcardsProject\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.csproj.CoreCompileInputs.cache
+C:\Users\Виктория\Desktop\FlashcardsProject\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.AssemblyInfoInputs.cache
+C:\Users\Виктория\Desktop\FlashcardsProject\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.AssemblyInfo.cs
+D:\study\3 kurs\FlashcardsProject\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.csprojAssemblyReference.cache
+D:\study\3 kurs\FlashcardsProject\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.AssemblyInfoInputs.cache
+D:\study\3 kurs\FlashcardsProject\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.AssemblyInfo.cs
+D:\study\3 kurs\FlashcardsProject\Flashcards\bin\Debug\netcoreapp2.1\Flashcards.deps.json
+D:\study\3 kurs\FlashcardsProject\Flashcards\bin\Debug\netcoreapp2.1\Flashcards.dll
+D:\study\3 kurs\FlashcardsProject\Flashcards\bin\Debug\netcoreapp2.1\Flashcards.pdb
+D:\study\3 kurs\FlashcardsProject\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.dll
+D:\study\3 kurs\FlashcardsProject\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.pdb
+C:\Users\Виктория\Desktop\FlashcardsProject\Flashcards\bin\Debug\netcoreapp2.1\Flashcards.pdb
+C:\Users\Виктория\Desktop\FlashcardsProject\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.dll
+C:\Users\Виктория\Desktop\FlashcardsProject\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.pdb
+C:\Users\Виктория\Desktop\web-flashcards\backend\Flashcards\bin\Debug\netcoreapp2.1\Flashcards.deps.json
+C:\Users\Виктория\Desktop\web-flashcards\backend\Flashcards\bin\Debug\netcoreapp2.1\Flashcards.dll
+C:\Users\Виктория\Desktop\web-flashcards\backend\Flashcards\bin\Debug\netcoreapp2.1\Flashcards.pdb
+C:\Users\Виктория\Desktop\web-flashcards\backend\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.csprojAssemblyReference.cache
+C:\Users\Виктория\Desktop\web-flashcards\backend\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.csproj.CoreCompileInputs.cache
+C:\Users\Виктория\Desktop\web-flashcards\backend\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.AssemblyInfoInputs.cache
+C:\Users\Виктория\Desktop\web-flashcards\backend\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.AssemblyInfo.cs
+C:\Users\Виктория\Desktop\web-flashcards\backend\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.dll
+C:\Users\Виктория\Desktop\web-flashcards\backend\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.pdb
+C:\Users\Виктория\Desktop\web-flashcards\Flashcards\bin\Debug\netcoreapp2.1\Flashcards.deps.json
+C:\Users\Виктория\Desktop\web-flashcards\Flashcards\bin\Debug\netcoreapp2.1\Flashcards.dll
+C:\Users\Виктория\Desktop\web-flashcards\Flashcards\bin\Debug\netcoreapp2.1\Flashcards.pdb
+C:\Users\Виктория\Desktop\web-flashcards\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.csprojAssemblyReference.cache
+C:\Users\Виктория\Desktop\web-flashcards\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.csproj.CoreCompileInputs.cache
+C:\Users\Виктория\Desktop\web-flashcards\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.AssemblyInfoInputs.cache
+C:\Users\Виктория\Desktop\web-flashcards\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.AssemblyInfo.cs
+C:\Users\Виктория\Desktop\web-flashcards\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.dll
+C:\Users\Виктория\Desktop\web-flashcards\Flashcards\obj\Debug\netcoreapp2.1\Flashcards.pdb
