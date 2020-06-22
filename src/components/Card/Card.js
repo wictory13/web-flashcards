@@ -9,7 +9,7 @@ class Card extends React.Component {
     }
 
     deleteCurCard = async () =>{
-      const response = await fetch('api/cards/delete',{
+      const response = await fetch('https://localhost:44351/api/cards/delete',{
           method: 'DELETE',
           headers: {
               'Authorization': 'Bearer ' + cookie.load('token'),

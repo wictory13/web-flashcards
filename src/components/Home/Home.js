@@ -21,7 +21,7 @@ class Home extends React.Component {
     }
 
      getCollectionsUser = async () => {
-         const response = await fetch("/api/collections/all", {
+         const response = await fetch("https://localhost:44351/api/collections/all", {
              headers:{
                  'Authorization': 'Bearer ' + cookie.load('token')
              },
@@ -38,7 +38,7 @@ class Home extends React.Component {
     }
 
     onCreateCollectionServer = async (e) => {
-        const response = await fetch("/api/collections/create", {
+        const response = await fetch("https://localhost:44351/api/collections/create", {
             headers:{
                 'Authorization': 'Bearer ' + cookie.load('token'),
                 'Accept': 'application/json',
@@ -60,7 +60,7 @@ class Home extends React.Component {
     deleteCollection = (idCollection)=> this.setState((state)=>({collections: state.collections.filter(item => item.id !== idCollection)}));
 
     getCollection = async(id) =>{
-        const response = await fetch(`/api/collections/${id}`, {
+        const response = await fetch(`https://localhost:44351/api/collections/${id}`, {
             headers:{
                 'Authorization': 'Bearer ' + cookie.load('token'),
             }

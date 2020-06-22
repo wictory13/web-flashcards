@@ -21,7 +21,7 @@ class SignUp extends Component {
 
     onSignup = async (e) => {
         e.preventDefault();
-        const response = await fetch("/api/users/create", {
+        const response = await fetch("https://localhost:44351/api/users/create", {
             headers:{
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'

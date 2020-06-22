@@ -24,7 +24,7 @@ class SignIn extends Component{
         // cookie.save('token', 'check',{ path: '/'}); //проверка без бэк
         // cookie.save('username', 'check',{ path: '/'});
         e.preventDefault();
-        const response = await fetch("/api/users/token", {
+        const response = await fetch("https://localhost:44351/api/users/token", {
             headers:{
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
