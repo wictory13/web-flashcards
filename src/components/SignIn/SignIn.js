@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {Link} from "react-router-dom";
-import './SingIn.css'
+import './SignIn.css'
 import cookie from 'react-cookies';
 
 const namesForm = ['login','password'];

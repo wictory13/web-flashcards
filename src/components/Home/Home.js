@@ -18,7 +18,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         this.getCollectionsUser();
-        // this.setState({collections: [{id: 1, name: 'животные', cardsCount: 3}, {id: 2, name: 'люди', cardsCount: 0}]}); //бэк не работает
+        // this.setState({collections: [{id: 1, name: 'животные', ownerLogin: 'asas'}, {id: 2, name: 'люди', ownerLogin: 'asas'}]}); //бэк не работает
     }
 
      getCollectionsUser = async () => {
@@ -74,8 +74,11 @@ class Home extends React.Component {
     }
 
     render() {
-        const curCollections = this.state.collections ? this.state.collections.map(e => <Collection key={e.id} name={e.name} id={e.id} count={this.state.collections.length} deleteCollection={this.deleteCollection}/>) : '';
-        const newCollection = <form onSubmit={this.onCreateCollectionServer}><input className="input" type='text' name='name' placeholder='Введите название коллекции' defaultValue='just Collection'/></form>;
+        const curCollections = this.state.collections ? this.state.collections.map(e => <Collection key={e.id} name={e.name} id={e.id} deleteCollection={this.deleteCollection}/>) : '';
+        const newCollection = <div>
+            <form onSubmit={this.onCreateCollectionServer}><input className="input" type='text' name='name' placeholder='Введите название коллекции' defaultValue='just Collection'/></form>
+            <button onClick={()=>this.setState({isAddNewCollection: false})}>отмена</button>
+        </div>;
         return (
             <div>
                     <div id="game" >
