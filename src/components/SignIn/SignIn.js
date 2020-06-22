@@ -22,6 +22,7 @@ class SignIn extends Component{
 
     onLogin = async (e) => {
         // cookie.save('token', 'check',{ path: '/'}); //проверка без бэк
+        // cookie.save('username', 'check',{ path: '/'});
         e.preventDefault();
         const response = await fetch("/api/users/token", {
             headers:{
