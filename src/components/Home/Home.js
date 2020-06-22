@@ -3,6 +3,7 @@ import Collection from "../Collection/Collection";
 import './Home.css'
 import '../CollectionForWork/CollectionForWork.css' //и вот здесь смущает
 import cookie from 'react-cookies';
+import {Redirect} from "react-router-dom";
 
 
 class Home extends React.Component {
@@ -12,6 +13,7 @@ class Home extends React.Component {
         this.state = {
             collections: null,
             isAddNewCollection: false,
+            isUpdate: false,
         }
     }
 
@@ -32,6 +34,11 @@ class Home extends React.Component {
          }
      }
 
+    onClick = () => {
+        cookie.remove('token');
+        cookie.remove('name');
+        this.setState({isUpdate: true});
+    }
 
     onCreateCollection = () => {
         this.setState({isAddNewCollection: true});
@@ -71,25 +78,39 @@ class Home extends React.Component {
         }
     }
 
-    render() {
-        const curCollections = this.state.collections ? this.state.collections.map(e => <Collection key={e.id} name={e.name} id={e.id} deleteCollection={this.deleteCollection}/>) : '';
-        const newCollection = (
+    getNewCollection = () => {
+        return (
             <div>
+                <div id="game" >
+                    <h2>Добро пожаловать, {cookie.load('username')}!</h2>
+                </div>
                 <form onSubmit={this.onCreateCollectionServer}>
                     <input className="input" type='text' name='nameCol' placeholder='Введите название коллекции' defaultValue='just Collection'/>
                     <button>Создать</button>
                 </form>
                 <button onClick={()=>this.setState({isAddNewCollection: false})}>отмена</button>
             </div>
-        );
+        )
+    }
+
+    render() {
+        if (this.state.isUpdate) {
+            return <Redirect to='/'/>;
+        }
+        const curCollections = this.state.collections ? this.state.collections.map(e => <Collection key={e.id} name={e.name} id={e.id} deleteCollection={this.deleteCollection}/>) : '';
+        if (this.state.isAddNewCollection)
+            return this.getNewCollection();
         return (
             <div>
+                <div>
+                    {cookie.load('token') ? <button onClick={this.onClick}>Выйти</button> : ''}
+                </div>
                 <div id="game" >
                     <h2>Добро пожаловать, {cookie.load('username')}!</h2>
                     <h>Ваши коллекции:</h>
                 </div>
                 <div id="table" className="table" >
-                    {this.state.isAddNewCollection ? newCollection : curCollections}
+                    {curCollections}
                 </div>
                 <div>
                     <button className="link" onClick={this.onCreateCollection}>Создать новую коллекцию</button>

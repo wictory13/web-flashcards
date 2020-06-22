@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import './SignIn.css'
 import cookie from 'react-cookies';
 
@@ -10,6 +10,7 @@ class SignIn extends Component{
         super(props);
         this.state = {
             errMessage: null,
+            update: false
         }
     }
 
@@ -21,27 +22,27 @@ class SignIn extends Component{
     }
 
     onLogin = async (e) => {
-        cookie.save('token', 'check',{ path: '/'}); //проверка без бэк
-        cookie.save('username', 'check',{ path: '/'});
-        this.props.login();
+        // cookie.save('token', 'check',{ path: '/'}); //проверка без бэк
+        // cookie.save('username', 'check',{ path: '/'});
         e.preventDefault();
-        // const response = await fetch("https://localhost:44351/api/users/token", {
-        //     headers:{
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json'
-        //     },
-        //     method: "POST",
-        //     body: JSON.stringify(this.getDataForm(e))
-        // });
-        // await this.processResponseLogin(response);
+        //this.props.login()
+        const response = await fetch("https://localhost:44351/api/users/token", {
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify(this.getDataForm(e))
+        });
+        await this.processResponseLogin(response);
     }
 
-    async processResponseLogin(response) {
+     processResponseLogin = async(response) => {
         if (response && response.ok) {
             const payload = await response.json();//жду token и username пользователя
             cookie.save('token', payload.token ,{ path: '/'});
             cookie.save('username', payload.username,{ path: '/'});
-            this.props.login();
+            this.setState({update: true});
         }else {
             if (response)
                 this.setState({ errMessage: `Response failed: ${response.status} ${response.statusText}`});
@@ -51,6 +52,8 @@ class SignIn extends Component{
 
 
     render() {
+        if (this.state.update)
+            return <Redirect to='/'/>;
         if (this.state.errMessage) {
             return (<div ><div><p className='Fail'>{this.state.errMessage}<br/>
                 <br/>Sorry, please try later.</p><button onClick={() => this.setState({errMessage: null})}>Ok</button></div></div>);
@@ -59,11 +62,11 @@ class SignIn extends Component{
             <div id="game"  >
                 <h2>Вход в приложение</h2>
             </div>
-            <form onSubmit={this.onLogin}>
-            <div className="form">
-                <input className="input" type='text' name='login' placeholder='Enter your login' defaultValue='user'/>
-                <input  className="input" type='password' name='password' placeholder='Enter your password' defaultValue='123456'/>
-            </div>
+                <form onSubmit={this.onLogin}>
+                    <div className="form">
+                        <input className="input" type='text' name='login' placeholder='Enter your login' defaultValue='user'/>
+                        <input  className="input" type='password' name='password' placeholder='Enter your password' defaultValue='123456'/>
+                    </div>
 
                 <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox
                      data-uk-tooltip="{pos:'bottom'}" >

@@ -38,7 +38,8 @@ class Collection extends React.Component{
 
     onCreateCard = () => this.setState({isCreateCard: true});
 
-    CreateCard = async () => {
+    CreateCard = async (e) => {
+        e.preventDefault();
         const response = await fetch('https://localhost:44351/api/cards/create',{
             method: 'POST',
             headers: {
@@ -107,6 +108,8 @@ class Collection extends React.Component{
     }
 
     render() {
+        if(this.state.isCreateCard)
+            return this.getCreateCard();
         return this.getCollection();
     }
 }
