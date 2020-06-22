@@ -45,7 +45,7 @@ class Home extends React.Component {
                 'Content-Type': 'application/json'
             },
             method: "POST",
-            body: JSON.stringify(e.target.name.value)
+            body: JSON.stringify(e.target.nameCol.value)
         });
         if (response && response.ok) {
             const payload = await response.json();// жду idCollection
@@ -76,7 +76,8 @@ class Home extends React.Component {
         const newCollection = (
             <div>
                 <form onSubmit={this.onCreateCollectionServer}>
-                    <input className="input" type='text' name='name' placeholder='Введите название коллекции' defaultValue='just Collection'/>
+                    <input className="input" type='text' name='nameCol' placeholder='Введите название коллекции' defaultValue='just Collection'/>
+                    <button>Создать</button>
                 </form>
                 <button onClick={()=>this.setState({isAddNewCollection: false})}>отмена</button>
             </div>

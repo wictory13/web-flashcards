@@ -21,18 +21,19 @@ class SignIn extends Component{
     }
 
     onLogin = async (e) => {
-        // cookie.save('token', 'check',{ path: '/'}); //проверка без бэк
-        // cookie.save('username', 'check',{ path: '/'});
+        cookie.save('token', 'check',{ path: '/'}); //проверка без бэк
+        cookie.save('username', 'check',{ path: '/'});
+        this.props.login();
         e.preventDefault();
-        const response = await fetch("https://localhost:44351/api/users/token", {
-            headers:{
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: "POST",
-            body: JSON.stringify(this.getDataForm(e))
-        });
-        await this.processResponseLogin(response);
+        // const response = await fetch("https://localhost:44351/api/users/token", {
+        //     headers:{
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //     },
+        //     method: "POST",
+        //     body: JSON.stringify(this.getDataForm(e))
+        // });
+        // await this.processResponseLogin(response);
     }
 
     async processResponseLogin(response) {
@@ -40,6 +41,7 @@ class SignIn extends Component{
             const payload = await response.json();//жду token и username пользователя
             cookie.save('token', payload.token ,{ path: '/'});
             cookie.save('username', payload.username,{ path: '/'});
+            this.props.login();
         }else {
             if (response)
                 this.setState({ errMessage: `Response failed: ${response.status} ${response.statusText}`});

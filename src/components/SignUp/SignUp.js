@@ -8,6 +8,7 @@ class SignUp extends Component {
         super(props);
         this.state = {
             errMessage: null,
+            redirectMain: false,
         }
     }
 
@@ -34,7 +35,7 @@ class SignUp extends Component {
 
     processResponseSignup = (response) => {
         if (response && response.ok)
-            return <Redirect to='/'/>;
+            this.setState({redirectMain: true})
         else {
             if (response)
                 this.setState({ errMessage: `Response failed: ${response.status} ${response.statusText}`});
@@ -43,6 +44,8 @@ class SignUp extends Component {
     }
 
     render(){
+        if (this.state.redirectMain)
+            return <Redirect to='/'/>;
         if (this.state.errMessage) {
             return (<div><div><p>{this.state.errMessage} Sorry, please try later.</p>
                 <button onClick={() => this.setState({errMessage: null})}>Ok</button></div></div>);
