@@ -1,53 +1,59 @@
 import React from 'react';
 import './Card.css'
+import cookie from "react-cookies";
 
 
 class Card extends React.Component {
     constructor(props){
         super(props);
     }
-//удаление карточки оповистить коллекцию
-    deleteCurCard = (_) =>{
-      fetch('api/cards/delete',{
+
+    deleteCurCard = async () =>{
+      const response = await fetch('api/cards/delete',{
           method: 'DELETE',
           headers: {
+              'Authorization': 'Bearer ' + cookie.load('token'),
               'Accept': 'application/json',
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify({id:this.props.curCard.id})
-      })
+          body: JSON.stringify(this.props.curCard.id)
+      });
+
+      if (response&& response.ok)
+          this.props.deleteCard(this.props.curCard.id);
     };
 
-    render() {
-        const curWord = <h4>{this.props.word}</h4>;
-        if (this.props.isShow ) {
-            return <div className="card" >
+    getCardForShow = () =>{
+        return(
+            <div className="card" >
                 <div className="uk-panel-box ">
-                {curWord}
-                <img src={this.props.curCard.img} height={150} alt={this.props.curCard.transaction}/>
-                <div className="bottom-panel-actions">
-                        <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox
-                             data-uk-tooltip="{pos:'bottom'}" >
-                            <button id="btnVoice" className="uk-button uk-width-1-1"
-                                    onClick={this.props.changeLanguage}>Перевернуть карточку
+                    <div>
+                        <h4>{this.props.curCard.word}</h4>
+                        <h4>{this.props.curCard.translation}</h4>
+                    </div>
+                    <img src={this.props.curCard.img} height={150} alt={this.props.curCard.translation}/>
+                    <div className="bottom-panel-actions">
+                        <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox data-uk-tooltip="{pos:'bottom'}" >
+                            <button id="btnVoice" className="uk-button uk-width-1-1" onClick={this.deleteCurCard}>
+                                Удалить карточку
                             </button>
                         </div>
-                        <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox
-                             data-uk-tooltip="{pos:'bottom'}" >
-                            <button id="btnVoice" className="uk-button uk-width-1-1"
-                                    onClick={this.deleteCurCard}> Удалить карточку
-                            </button>
-                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
-        }
-        return (<div className="card" >
-            <div className="uk-panel-box check">
-                {curWord}
-                </div>
-        </div>)
+        )
+    }
 
+    render() {
+        if (this.props.isShow )
+            return this.getCardForShow();
+        return(
+            <div className="card" >
+                <div className="uk-panel-box check">
+                    <h4>{this.props.isCheck ? this.props.curCard.translation : this.props.curCard.word}</h4>
+                </div>
+            </div>
+        )
     }
 
 }

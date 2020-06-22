@@ -3,7 +3,6 @@ import Collection from "../Collection/Collection";
 import './Home.css'
 import '../CollectionForWork/CollectionForWork.css' //и вот здесь смущает
 import cookie from 'react-cookies';
-import {Link} from "react-router-dom";
 
 
 class Home extends React.Component {
@@ -50,18 +49,15 @@ class Home extends React.Component {
         });
         if (response && response.ok) {
             const payload = await response.json();// жду idCollection
-            const curCollection = this.getCollection(payload.idCollection)
-            const newCollection = this.state.collections.slice();
-            newCollection.push(curCollection)
+            const curCollection = await this.getCollection(payload.idCollection)
+            const newCollections = this.state.collections.slice();
+            newCollections.push(curCollection)
             if(curCollection)
-                this.setState({isAddNewCollection: false,  collections: newCollection})
+                this.setState({isAddNewCollection: false,  collections: newCollections})
         }
     }
 
-    deleteCollection = (idCollection)=>{
-        const newCollections = this.state.collections.slice();
-        this.setState({collections: newCollections.filter(item => item.id != idCollection)})
-    }
+    deleteCollection = (idCollection)=> this.setState((state)=>({collections: state.collections.filter(item => item.id !== idCollection)}));
 
     getCollection = async(id) =>{
         const response = await fetch(`/api/collections/${id}`, {
@@ -69,22 +65,28 @@ class Home extends React.Component {
                 'Authorization': 'Bearer ' + cookie.load('token'),
             }
         });
-        if (response && response.ok)
-            return await response.json();
+        if (response && response.ok) {
+            const payload = await response.json();
+            return payload;
+        }
     }
 
     render() {
         const curCollections = this.state.collections ? this.state.collections.map(e => <Collection key={e.id} name={e.name} id={e.id} deleteCollection={this.deleteCollection}/>) : '';
-        const newCollection = <div>
-            <form onSubmit={this.onCreateCollectionServer}><input className="input" type='text' name='name' placeholder='Введите название коллекции' defaultValue='just Collection'/></form>
-            <button onClick={()=>this.setState({isAddNewCollection: false})}>отмена</button>
-        </div>;
+        const newCollection = (
+            <div>
+                <form onSubmit={this.onCreateCollectionServer}>
+                    <input className="input" type='text' name='name' placeholder='Введите название коллекции' defaultValue='just Collection'/>
+                </form>
+                <button onClick={()=>this.setState({isAddNewCollection: false})}>отмена</button>
+            </div>
+        );
         return (
             <div>
-                    <div id="game" >
-                        <h2>Добро пожаловать, {cookie.load('username')}!</h2>
-                        <h>Ваши коллекции:</h>
-                    </div>
+                <div id="game" >
+                    <h2>Добро пожаловать, {cookie.load('username')}!</h2>
+                    <h>Ваши коллекции:</h>
+                </div>
                 <div id="table" className="table" >
                     {this.state.isAddNewCollection ? newCollection : curCollections}
                 </div>

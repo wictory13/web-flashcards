@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import {Redirect} from 'react-router';
 import Card from "../Card/Card";
 import './CollectionForWork.css'
 import {Link} from "react-router-dom";
+import cookie from "react-cookies";
 
 class CollectionForWork extends Component {
     constructor(props){
@@ -11,51 +11,140 @@ class CollectionForWork extends Component {
             cards: null,
             errMessage: null,
             curIndex: 0,
-            score: 0,
+            countSuccess: 0,
             endCheck: false,
-            languageIsNative: false,
             answerUser: null,
+            countFail: 0,
+            cardForCheck: null,
+            isCheckCard: false,
         }
     }
     componentDidMount() {
         this.getCards();
+        this.nextWord();
     }
 
     changeIndex = (value) => {
-        this.setState((state, props) => {
-                let newIndex = (state.curIndex + value) % props.match.params.count;
-                if (newIndex < 0)
-                    newIndex = +props.match.params.count + newIndex;
-                return {curIndex: newIndex, languageIsNative: false};
-            }
-        )
+        let newIndex = (this.state.curIndex + value) % this.state.cards.length;
+        if (newIndex < 0)
+            newIndex = this.state.cards.length + newIndex;
+        this.setState({curIndex: newIndex, languageIsNative: false});
     }
 
-    changeLanguage = (_) => this.setState((state, _) => ({languageIsNative: !state.languageIsNative}));
+    deleteCard = (idCard) => this.setState((state) => ({cards: state.cards.filter(item => item.id !== idCard)}));
 
-    setAnswer = (answerUser) => this.setState((state, _) => ({answerUser: answerUser, languageIsNative: !state.languageIsNative}));
+    setAnswer = (answerUser) => this.setState({answerUser: answerUser, isCheckCard: true});
 
-    nextWord = (isRight) => {
-        //вынести state
-        this.setState((state, props) => {
-                const newIndex = (state.curIndex + 1);
-                if (newIndex === +props.match.params.count)
-                    return isRight ? {endCheck: true, score: state.score + 1, languageIsNative: false, answerUser: null}
-                        : {endCheck: true, languageIsNative: false, answerUser: null};
-                return isRight ? {curIndex: newIndex, score: state.score + 1, languageIsNative: false, answerUser: null}
-                : {curIndex: newIndex, languageIsNative: false, answerUser: null};
-            }
-        )
+
+    processAnswerUser = async (isRight) => {
+        if (isRight)
+            await this.noteRightAnswer();
+        const newCountSuccess = isRight ? this.state.countSuccess + 1 : this.state.countSuccess;
+        const newCountFail =  isRight ? this.state.countFail : this.state.countFail + 1;
+        await this.nextWord(newCountSuccess, newCountFail);
     }
+
+    nextWord = async (newCountSuccess = this.state.countSuccess, newCountFail = this.state.countFail) => {
+        const response = await fetch(`https://localhost:44351/api/collections/${this.props.match.params.id}/next`, {
+            headers:{
+                'Authorization': 'Bearer ' + cookie.load('token'),
+            }
+        });
+        if (response && response.ok){
+            const payload = await response.json();//жду id, collectionId, word,translation, periodicity, ownerLogin
+            this.setState({cardForCheck: payload, isCheckCard: false, answerUser: null, countSuccess: newCountSuccess, countFail: newCountFail})
+        }
+    }
+
+    noteRightAnswer = async () => {
+        const response = await fetch('https://localhost:44351/api/cards/know',{
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + cookie.load('token'),
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.state.cardForCheck.id)
+        });
+    }
+
     getCards = async () => {
-        // const result = await fetch(`api/collections/${this.props.match.params.id}/cards`).then(r => r.ok ? r.json() : this.setState({errMessage: `Ошибка ${r.status} ${r.statusText},
-        //  попробуйте загрузить позже`}), e => this.setState({errMessage: 'Сервер не доступен, попробуйте позже.'}));
-        // this.setState({cards: result.cards});
-        this.setState({cards: [{id: 1, word: 'cat', translation: 'кошка', img:'https://ichef.bbci.co.uk/news/320/cpsprodpb/582E/production/_109447522_catsmaincoonunfriendly.jpg'},
-                {id: 2, word: 'dog', translation: 'собака', img: 'https://cs2.livemaster.ru/storage/a6/c2/c07137d2f3df108be9971f9aa3qm--kukly-i-igrushki-vojlochnaya-igrushka-fedenka-sobachka-iz-she.jpg'},
-                {id: 3, word: 'penguin', translation:'пингвин', img:'https://i.pinimg.com/originals/c6/96/41/c69641a5d9a63081e22a8ae51c145505.jpg'}]});
+        const response = await fetch(`https://localhost:44351/api/collections/${this.props.match.params.id}/cards`, {
+            headers:{
+                'Authorization': 'Bearer ' + cookie.load('token')
+            },
+        });
+        if (response && response.ok) {
+            const payload = await response.json();//жду {id, collectionId, word,translation, periodicity, ownerLogin, img},...
+            this.setState({cards: payload})
+        }
+        // this.setState({cards: [{id: 1, word: 'cat', translation: 'кошка', img:'https://ichef.bbci.co.uk/news/320/cpsprodpb/582E/production/_109447522_catsmaincoonunfriendly.jpg'},
+        //         {id: 2, word: 'dog', translation: 'собака', img: 'https://cs2.livemaster.ru/storage/a6/c2/c07137d2f3df108be9971f9aa3qm--kukly-i-igrushki-vojlochnaya-igrushka-fedenka-sobachka-iz-she.jpg'},
+        //         {id: 3, word: 'penguin', translation:'пингвин', img:'https://i.pinimg.com/originals/c6/96/41/c69641a5d9a63081e22a8ae51c145505.jpg'}]}); без бэкэнда
     }
-//разбить по функции
+
+    getCollectionForShow = () => {
+        const curCard = this.state.cards[this.state.curIndex];
+        return (
+            <div>
+                <Card isShow={true} curCard={curCard} deleteCard={this.deleteCard}/>
+                <div id="board" className="bottom-panel-management">
+                    <div id="speechBtn" className="bottom-panel-button board first" data-uk-button-checkbox data-uk-tooltip="{pos:'bottom'}">
+                        <button id="btnVoice" className="uk-button uk-width-1-2" onClick={() => this.changeIndex(-1)}>
+                            Назад
+                        </button>
+                    </div>
+                    <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox data-uk-tooltip="{pos:'bottom'}">
+                        <button id="btnVoice" className="uk-button uk-width-1-2" onClick={() => this.changeIndex(1)}>
+                            Вперед
+                        </button>
+                    </div>
+                    <Link  className="link" to={'/'}>Вернуться к коллекциям</Link>
+                </div>
+            </div>
+        )
+    }
+
+    getCollectionForCheck = () => {
+        return (
+            <div>
+                <Card isShow={false} isCheck ={this.state.isCheckCard} curCard={this.state.cardForCheck}/>
+                <div id="speechBtn" className="bottom-panel-button board first" data-uk-button-checkbox data-uk-tooltip="{pos:'bottom'}" >
+                    <button id="btnVoice" className="uk-button no" onClick={() => this.setAnswer(false)}>
+                        Не помню
+                    </button>
+                </div>
+                <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox data-uk-tooltip="{pos:'bottom'}" >
+                    <button id="btnVoice" className="uk-button yes" onClick={() => this.setAnswer(true)}>
+                        Помню
+                    </button>
+                </div>
+            </div>
+        )
+    }
+
+    getCollectionForCheckAnswerUser = () => {
+        return(
+            <div>
+                <Card isShow={false} isCheck ={this.state.isCheckCard} curCard={this.state.cardForCheck}/>
+                <div id="speechBtn" className="bottom-panel-button board first" data-uk-button-checkbox data-uk-tooltip="{pos:'bottom'}" >
+                    <button id="btnVoice" className="uk-button uk-width-1-2" onClick={() => this.processAnswerUser(this.state.answerUser)}>
+                        Продолжить
+                    </button>
+                </div>
+                {
+                    this.state.answerUser
+                    ? <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox data-uk-tooltip="{pos:'bottom'}" >
+                        <button id="btnVoice" className="uk-button uk-width-1-2" onClick={() => this.processAnswerUser(false)}>
+                            Ошибся
+                        </button>
+                    </div>
+                    : ''
+                }
+            </div>
+        )
+    }
+
     render() {
         if (!this.state.cards)
             return '';
@@ -63,77 +152,18 @@ class CollectionForWork extends Component {
             return (
                 <div>
                 <div id="game"  className="death">
-                    <h2>Вы запомнили {this.state.score} из {this.props.match.params.count}</h2>
+                    <h2>Вы  ответили правильно {this.state.countSuccess} из {this.state.countSuccess + this.state.countFail}</h2>
                 </div>
                     <Link className="link" to={'/'}>Вернуться в меню</Link>
                 </div>
             )
         }
-        const curCard = this.state.cards[this.state.curIndex];
-        const word = this.state.languageIsNative ? curCard.translation : curCard.word;
-        if(this.props.match.path.includes('show')) {
-            return (
-                <div>
-                    <Card isShow={true} word={word} curCard={curCard} idCollection={this.props.match.params.id} changeLanguage={this.changeLanguage}/>
-                    <div id="board" className="bottom-panel-management">
-                    <div id="speechBtn" className="bottom-panel-button board first" data-uk-button-checkbox
-                         data-uk-tooltip="{pos:'bottom'}" >
-                        <button id="btnVoice" className="uk-button uk-width-1-2"
-                                onClick={(_) => this.changeIndex(-1)}> Назад
-                        </button>
-                    </div>
-                    <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox
-                         data-uk-tooltip="{pos:'bottom'}" >
-                        <button id="btnVoice" className="uk-button uk-width-1-2"
-                                onClick={(_) => this.changeIndex(1)}> Вперед
-                        </button>
-                    </div>
-
-                    <Link  className="link" to={'/'}>Вернуться к коллекциям</Link>
-                </div>
-                </div>
-            )
-        }
-
+        if(this.props.match.path.includes('show'))
+            return this.getCollectionForShow();
         if (this.state.answerUser === null){
-            return (<div>
-                <Card isShow={false} word={word} curCard={curCard}/>
-                <div id="speechBtn" className="bottom-panel-button board first" data-uk-button-checkbox
-                     data-uk-tooltip="{pos:'bottom'}" >
-                    <button id="btnVoice" className="uk-button no"
-                            onClick={(_) => this.setAnswer(false)}>Не помню
-                    </button>
-                </div>
-                <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox
-                     data-uk-tooltip="{pos:'bottom'}" >
-                    <button id="btnVoice" className="uk-button yes"
-                            onClick={(_) => this.setAnswer(true)}>Помню
-                    </button>
-                </div>
-
-            </div>)
+            return this.getCollectionForCheck();
         }
-
-        return (
-            <div>
-                <Card isShow={false} word={word} curCard={curCard}/>
-                <div id="speechBtn" className="bottom-panel-button board first" data-uk-button-checkbox
-                     data-uk-tooltip="{pos:'bottom'}" >
-                    <button id="btnVoice" className="uk-button uk-width-1-2"
-                            onClick={(_) => this.nextWord(this.state.answerUser)}>Продолжить
-                    </button>
-                </div>
-                {this.state.answerUser ?
-                <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox
-                     data-uk-tooltip="{pos:'bottom'}" >
-                    <button id="btnVoice" className="uk-button uk-width-1-2"
-                            onClick={(_) => this.nextWord(false)}>Ошибся
-                    </button>
-                </div>:''}
-
-            </div>
-        )
-
+        return this.getCollectionForCheckAnswerUser();
     }
 }
 
