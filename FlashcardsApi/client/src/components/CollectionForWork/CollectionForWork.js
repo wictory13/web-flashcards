@@ -22,7 +22,8 @@ class CollectionForWork extends Component {
     }
     componentDidMount() {
         this.getCards();
-        this.nextWord();
+        this.props.match.path.includes('check')
+            this.nextWord();
     }
 
     changeIndex = (value) => {
@@ -61,6 +62,7 @@ class CollectionForWork extends Component {
                     countSuccess: newCountSuccess,
                     countFail: newCountFail
                 })
+                this.setState({endCheck: false, isLearn: false})
             }
             else
                 this.setState({endCheck: true, isLearn: true})
@@ -165,7 +167,7 @@ class CollectionForWork extends Component {
                 <div id="game"  className="death">
                     {this.state.isLearn ? <h2>Поздравляю, вы выучили эту коллекцию!</h2> : <h2>Вы  ответили правильно {this.state.countSuccess} из {this.state.countSuccess + this.state.countFail}</h2>}
                 </div>
-                    <Link className="link" to={'/'} onClick={() => this.setState({endCheck: false})}>Вернуться в меню</Link>
+                    <Link className="link" to={'/'}>Вернуться в меню</Link>
                 </div>
             )
         }
