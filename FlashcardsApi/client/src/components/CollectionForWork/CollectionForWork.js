@@ -8,7 +8,7 @@ class CollectionForWork extends Component {
     constructor(props){
         super(props);
         this.state={
-            cards: null,
+            cards: [],
             errMessage: null,
             curIndex: 0,
             countSuccess: 0,
@@ -34,8 +34,8 @@ class CollectionForWork extends Component {
     }
 
     deleteCard = (idCard) => {
-        const newCards = state.cards.filter(item => item.id !== idCard);
-        this.setState((state) => ({cards: newCards, curIndex: 0}));
+        const newCards = this.state.cards.filter(item => item.id !== idCard);
+        this.setState({cards: newCards, curIndex: 0});
     }
 
     setAnswer = (answerUser) => this.setState({answerUser: answerUser, isCheckCard: true});
@@ -171,11 +171,11 @@ class CollectionForWork extends Component {
 
 
     render() {
-        const isEmpty = !this.state.cards || (this.props.match.path.includes('check') && !(this.state.cardForCheck || this.state.endCheck));
+        const isEmpty = this.state.cards.length === 0 || (this.props.match.path.includes('check') && !(this.state.cardForCheck || this.state.endCheck));
         if (isEmpty)
             return(
-                <div>
-                    <Link  className="link" to={'/'}>Вернуться к коллекциям</Link>
+                <div className="emptyCollection">
+                    <Link className="link" to={'/'}>Вернуться к коллекциям</Link>
                 </div>
             )
         if(this.state.endCheck){
