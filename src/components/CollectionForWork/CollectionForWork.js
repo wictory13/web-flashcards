@@ -17,6 +17,7 @@ class CollectionForWork extends Component {
             countFail: 0,
             cardForCheck: null,
             isCheckCard: false,
+            isLearn: false,
         }
     }
     componentDidMount() {
@@ -51,8 +52,17 @@ class CollectionForWork extends Component {
             }
         });
         if (response && response.ok){
-            const payload = await response.json();//жду id, collectionId, word,translation, periodicity, ownerLogin
-            this.setState({cardForCheck: payload, isCheckCard: false, answerUser: null, countSuccess: newCountSuccess, countFail: newCountFail})
+            if (response.body) {
+                const payload = await response.json();//жду id, collectionId, word,translation, periodicity, ownerLogin
+                this.setState({
+                    cardForCheck: payload,
+                    isCheckCard: false,
+                    answerUser: null,
+                    countSuccess: newCountSuccess,
+                    countFail: newCountFail
+                })
+            }
+            this.state({endCheck: true, isLearn: true})
         }
     }
 
@@ -152,7 +162,7 @@ class CollectionForWork extends Component {
             return (
                 <div>
                 <div id="game"  className="death">
-                    <h2>Вы  ответили правильно {this.state.countSuccess} из {this.state.countSuccess + this.state.countFail}</h2>
+                    {this.state.isLearn ? <h2>Пздравляю, вы выучили эту коллекцию!</h2> : <h2>Вы  ответили правильно {this.state.countSuccess} из {this.state.countSuccess + this.state.countFail}</h2>}
                 </div>
                     <Link className="link" to={'/'}>Вернуться в меню</Link>
                 </div>
