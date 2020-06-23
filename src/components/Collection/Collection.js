@@ -53,7 +53,19 @@ class Collection extends React.Component{
             this.setState({isCreateCard: false});
     }
 
-    getCreateCard(){
+    onForget =  async() =>{
+        const response = await fetch('https://localhost:44351/api/collections/forget',{
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + cookie.load('token'),
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.props.id)
+        });
+    }
+
+    getCreateCard = () =>{
         return(
             <div className="createCard">
                 <form onSubmit={this.CreateCard}>
@@ -73,7 +85,7 @@ class Collection extends React.Component{
         )
     }
 
-    getCollection(){
+    getCollection = () =>{
         return (
             <div className="collection">
                 <div className="box ">
@@ -99,6 +111,11 @@ class Collection extends React.Component{
                         <div id="speechBtn" className="bottom-panel-button home-card" >
                             <button id="btnVoice" className="uk-button uk-width-1-1" onClick={this.onCreateCard}>
                                 Добавить карточку в коллекцию
+                            </button>
+                        </div>
+                        <div id="speechBtn" className="bottom-panel-button home-card"  >
+                            <button id="btnVoice" className="uk-button uk-width-1-1" onClick={this.onForget}>
+                                Учить коллекцию снова
                             </button>
                         </div>
                     </div>
