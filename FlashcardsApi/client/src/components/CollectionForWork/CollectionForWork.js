@@ -22,7 +22,7 @@ class CollectionForWork extends Component {
     }
     componentDidMount() {
         this.getCards();
-        this.props.match.path.includes('check')
+        if (this.props.match.path.includes('check'))
             this.nextWord();
     }
 
@@ -53,16 +53,19 @@ class CollectionForWork extends Component {
             }
         });
         if (response && response.ok){
-            if (response.body === '') {
+            console.log(response.status)
+            console.log(response.statusText)
+            if (response.status !== 204) {
                 const payload = await response.json();//жду id, collectionId, word,translation, periodicity, ownerLogin
                 this.setState({
                     cardForCheck: payload,
                     isCheckCard: false,
                     answerUser: null,
                     countSuccess: newCountSuccess,
-                    countFail: newCountFail
+                    countFail: newCountFail,
+                    endCheck: false,
+                    isLearn: false
                 })
-                this.setState({endCheck: false, isLearn: false})
             }
             else
                 this.setState({endCheck: true, isLearn: true})
@@ -132,6 +135,11 @@ class CollectionForWork extends Component {
                         Помню
                     </button>
                 </div>
+                <div id="speechBtn" className="bottom-panel-button"  >
+                    <button id="btnVoice" className="uk-button yes" onClick={() => this.setState({endCheck: true})}>
+                        Закончить проверку
+                    </button>
+                </div>
             </div>
         )
     }
@@ -159,7 +167,7 @@ class CollectionForWork extends Component {
     }
 
     render() {
-        if (!this.state.cards || !(this.state.cardForCheck || this.state.endCheck))
+        if (!this.state.cards || (this.props.match.path.includes('check') && !(this.state.cardForCheck || this.state.endCheck)))
             return '';
         if(this.state.endCheck){
             return (
