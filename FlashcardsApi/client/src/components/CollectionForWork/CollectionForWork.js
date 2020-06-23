@@ -33,7 +33,10 @@ class CollectionForWork extends Component {
         this.setState({curIndex: newIndex, languageIsNative: false});
     }
 
-    deleteCard = (idCard) => this.setState((state) => ({cards: state.cards.filter(item => item.id !== idCard)}));
+    deleteCard = (idCard) => {
+        const newCards = state.cards.filter(item => item.id !== idCard);
+        this.setState((state) => ({cards: newCards, curIndex: 0}));
+    }
 
     setAnswer = (answerUser) => this.setState({answerUser: answerUser, isCheckCard: true});
 
@@ -166,9 +169,15 @@ class CollectionForWork extends Component {
         )
     }
 
+
     render() {
-        if (!this.state.cards || (this.props.match.path.includes('check') && !(this.state.cardForCheck || this.state.endCheck)))
-            return '';
+        const isEmpty = !this.state.cards || (this.props.match.path.includes('check') && !(this.state.cardForCheck || this.state.endCheck));
+        if (isEmpty)
+            return(
+                <div>
+                    <Link  className="link" to={'/'}>Вернуться к коллекциям</Link>
+                </div>
+            )
         if(this.state.endCheck){
             return (
                 <div>
