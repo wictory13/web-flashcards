@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import {Link} from "react-router-dom";
-import './SingIn.css'
+import {Link, Redirect} from "react-router-dom";
+import './SignIn.css'
 import cookie from 'react-cookies';
 
 const namesForm = ['login','password'];
@@ -10,6 +10,7 @@ class SignIn extends Component{
         super(props);
         this.state = {
             errMessage: null,
+            update: false
         }
     }
 
@@ -21,24 +22,28 @@ class SignIn extends Component{
     }
 
     onLogin = async (e) => {
-        // cookie.save('token', 'check',{ path: '/'}); //проверка без бэк
+         cookie.save('token', 'check',{ path: '/'}); //проверка без бэк
+         cookie.save('username', 'check',{ path: '/'});
         e.preventDefault();
-        const response = await fetch("/api/users/token", {
-            headers:{
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: "POST",
-            body: JSON.stringify(this.getDataForm(e))
-        });
-        this.processData(response);
+        //this.props.login();
+        this.setState({update: true});
+        // const response = await fetch("https://localhost:44351/api/users/token", {
+        //     headers:{
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //     },
+        //     method: "POST",
+        //     body: JSON.stringify(this.getDataForm(e))
+        // });
+        // await this.processResponseLogin(response);
     }
 
-    async processData(response) {
+     processResponseLogin = async(response) => {
         if (response && response.ok) {
             const payload = await response.json();//жду token и username пользователя
             cookie.save('token', payload.token ,{ path: '/'});
             cookie.save('username', payload.username,{ path: '/'});
+            this.setState({update: true});
         }else {
             if (response)
                 this.setState({ errMessage: `Response failed: ${response.status} ${response.statusText}`});
@@ -48,6 +53,8 @@ class SignIn extends Component{
 
 
     render() {
+        if (this.state.update)
+            return <Redirect to='/'/>;
         if (this.state.errMessage) {
             return (<div ><div><p className='Fail'>{this.state.errMessage}<br/>
                 <br/>Sorry, please try later.</p><button onClick={() => this.setState({errMessage: null})}>Ok</button></div></div>);
@@ -56,20 +63,19 @@ class SignIn extends Component{
             <div id="game"  >
                 <h2>Вход в приложение</h2>
             </div>
-            <form   onSubmit={this.onLogin}>
-            <div className="form">
-                <input className="input" type='text' name='login' placeholder='Enter your login' defaultValue='user'/>
-                <input  className="input" type='password' name='password' placeholder='Enter your password' defaultValue='123456'/>
-            </div>
+                <form onSubmit={this.onLogin}>
+                    <div className="form">
+                        <input className="input" type='text' name='login' placeholder='Enter your login' defaultValue='user'/>
+                        <input  className="input" type='password' name='password' placeholder='Enter your password' defaultValue='123456'/>
+                    </div>
 
-                <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox
-                     data-uk-tooltip="{pos:'bottom'}" >
+                <div id="speechBtn" className="bottom-panel-button" >
                     <button id="btnVoice" className="uk-button uk-width-1-2 first">
                         Войти
                     </button>
                 </div>
             </form>
-            <Link cid="btnVoice" className="uk-button uk-width-1-2" to={'/signUp'}>Зарегистрироваться</Link>
+            <Link id="btnVoice" className="uk-button uk-width-1-2" to={'/signUp'}>Зарегистрироваться</Link>
         </div>)
     }
 }

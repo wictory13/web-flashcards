@@ -6,10 +6,12 @@ using Microsoft.AspNetCore.Authorization;
 using System.Threading.Tasks;
 using System.Threading;
 using Flashcards.Storages;
+using Microsoft.AspNetCore.Cors;
 
 namespace FlashcardsApi.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("_myAllowSpecificOrigins")]
     [ApiController]
     public class CardsController : Controller
     {

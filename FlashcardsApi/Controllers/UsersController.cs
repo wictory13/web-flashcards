@@ -9,11 +9,12 @@ using Microsoft.IdentityModel.Tokens;
 using System.Threading;
 using Flashcards.Storages;
 using FlashcardsApi.Models;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 
 namespace FlashcardsApi.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("_myAllowSpecificOrigins")]
     [ApiController]
     public class UsersController : Controller
     {
