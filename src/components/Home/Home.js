@@ -89,8 +89,6 @@ class Home extends React.Component {
                     <input  className="input" type='text' name='nameCol' placeholder='Введите название коллекции' defaultValue='just Collection'/>
                     </div>
                     <div id="speechBtn" className="bottom-panel-button" >
-
-
                         <button className="uk-button uk-width-1-2 first">
                             Создать
                         </button>
@@ -118,7 +116,7 @@ class Home extends React.Component {
                             <button className="uk-button uk-width-1-2 game-but" onClick={this.onClick}>Выйти</button> : ''}
                     </div>
                     <h2>Добро пожаловать, {cookie.load('username')}!</h2>
-                    <h>Ваши коллекции:</h>
+                    <h3>Ваши коллекции:</h3>
 
                 </div>
                 <div id="table" className="table" >

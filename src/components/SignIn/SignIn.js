@@ -22,19 +22,20 @@ class SignIn extends Component{
     }
 
     onLogin = async (e) => {
-         //cookie.save('token', 'check',{ path: '/'}); //проверка без бэк
-         //cookie.save('username', 'check',{ path: '/'});
+         cookie.save('token', 'check',{ path: '/'}); //проверка без бэк
+         cookie.save('username', 'check',{ path: '/'});
         e.preventDefault();
-        //this.props.login()
-        const response = await fetch("https://localhost:44351/api/users/token", {
-            headers:{
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: "POST",
-            body: JSON.stringify(this.getDataForm(e))
-        });
-        await this.processResponseLogin(response);
+        //this.props.login();
+        this.setState({update: true});
+        // const response = await fetch("https://localhost:44351/api/users/token", {
+        //     headers:{
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //     },
+        //     method: "POST",
+        //     body: JSON.stringify(this.getDataForm(e))
+        // });
+        // await this.processResponseLogin(response);
     }
 
      processResponseLogin = async(response) => {

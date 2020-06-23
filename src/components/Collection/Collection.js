@@ -47,7 +47,7 @@ class Collection extends React.Component{
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(this.getDataForm())
+            body: JSON.stringify(this.getDataForm(e))
         });
         if (response && response.ok)
             this.setState({isCreateCard: false});
@@ -82,13 +82,13 @@ class Collection extends React.Component{
                     </div>
                     <div className="bottom-panel-actions home-panel">
                         <div id="speechBtn" className="bottom-panel-button home-card"  >
-                            <Link id="btnVoice" className="uk-button uk-width-1-1"
-                                  to={`/show/${this.props.id}/${this.props.name}`}>Посмотреть коллекцию
+                            <Link id="btnVoice" className="uk-button uk-width-1-1" to={`/show/${this.props.id}/${this.props.name}`}>
+                                Посмотреть коллекцию
                             </Link>
                         </div>
                         <div id="speechBtn" className="bottom-panel-button home-card"  >
-                            <Link id="btnVoice" className="uk-button uk-width-1-1"
-                                  to={`/check/${this.props.id}/${this.props.name}`}>Проверить себя
+                            <Link id="btnVoice" className="uk-button uk-width-1-1" to={`/check/${this.props.id}/${this.props.name}`}>
+                                Проверить себя
                             </Link>
                         </div>
                         <div id="speechBtn" className="bottom-panel-button home-card"  >
