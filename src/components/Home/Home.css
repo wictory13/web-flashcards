@@ -6,4 +6,8 @@
     flex-wrap: wrap;
     align-items: stretch;
     padding: 6px;
+    justify-content: space-between;
+}
+.game-but{
+    font-weight: 300;
 }

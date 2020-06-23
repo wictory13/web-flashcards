@@ -22,8 +22,8 @@ class SignIn extends Component{
     }
 
     onLogin = async (e) => {
-        // cookie.save('token', 'check',{ path: '/'}); //проверка без бэк
-        // cookie.save('username', 'check',{ path: '/'});
+         //cookie.save('token', 'check',{ path: '/'}); //проверка без бэк
+         //cookie.save('username', 'check',{ path: '/'});
         e.preventDefault();
         //this.props.login()
         const response = await fetch("https://localhost:44351/api/users/token", {
@@ -68,14 +68,13 @@ class SignIn extends Component{
                         <input  className="input" type='password' name='password' placeholder='Enter your password' defaultValue='123456'/>
                     </div>
 
-                <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox
-                     data-uk-tooltip="{pos:'bottom'}" >
+                <div id="speechBtn" className="bottom-panel-button" >
                     <button id="btnVoice" className="uk-button uk-width-1-2 first">
                         Войти
                     </button>
                 </div>
             </form>
-            <Link cid="btnVoice" className="uk-button uk-width-1-2" to={'/signUp'}>Зарегистрироваться</Link>
+            <Link id="btnVoice" className="uk-button uk-width-1-2" to={'/signUp'}>Зарегистрироваться</Link>
         </div>)
     }
 }

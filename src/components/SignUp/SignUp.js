@@ -59,14 +59,13 @@ class SignUp extends Component {
                 <input className="input" type='text' name='login' placeholder='Enter your login' defaultValue='user'/>
                 <input className="input" type='password' name='password' placeholder='Enter password' defaultValue='123456'/>
                 </div>
-                <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox
-                     data-uk-tooltip="{pos:'bottom'}" >
+                <div id="speechBtn" className="bottom-panel-button">
                     <button id="btnVoice" className="uk-button uk-width-1-2 first">
                         Зарегистрироваться
                     </button>
                 </div>
             </form>
-            <Link className="uk-button uk-width-1-2" to={'/'}>Уже зарегистрирован</Link>
+            <Link id="btnVoice" className="uk-button uk-width-1-2" to={'/'}>Уже зарегистрирован</Link>
         </div>);
     }
 }

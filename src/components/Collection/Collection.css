@@ -1,6 +1,6 @@
 .collection{
     padding: 6px;
-    flex: 1 0 20%;
+    /*flex: 1 0 20%;*/
     flex-direction: column;
     display: flex;
     min-width: 20%;
@@ -24,7 +24,7 @@
     border-radius: 4px;
 }
 .home-card{
-    width: 40%;
+    width: 60%;
     justify-content: center;
     flex-direction: column;
 
@@ -35,4 +35,11 @@
     justify-content: center;
     align-items: center;
 
+}
+.createCard{
+    width: 40%;
+}
+
+.createInput{
+    width: 50%;
 }

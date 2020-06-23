@@ -78,9 +78,9 @@ class CollectionForWork extends Component {
             const payload = await response.json();//жду {id, collectionId, word,translation, periodicity, ownerLogin, img},...
             this.setState({cards: payload})
         }
-        // this.setState({cards: [{id: 1, word: 'cat', translation: 'кошка', img:'https://ichef.bbci.co.uk/news/320/cpsprodpb/582E/production/_109447522_catsmaincoonunfriendly.jpg'},
+         //this.setState({cards: [{id: 1, word: 'cat', translation: 'кошка', img:'https://ichef.bbci.co.uk/news/320/cpsprodpb/582E/production/_109447522_catsmaincoonunfriendly.jpg'},
         //         {id: 2, word: 'dog', translation: 'собака', img: 'https://cs2.livemaster.ru/storage/a6/c2/c07137d2f3df108be9971f9aa3qm--kukly-i-igrushki-vojlochnaya-igrushka-fedenka-sobachka-iz-she.jpg'},
-        //         {id: 3, word: 'penguin', translation:'пингвин', img:'https://i.pinimg.com/originals/c6/96/41/c69641a5d9a63081e22a8ae51c145505.jpg'}]}); без бэкэнда
+        //         {id: 3, word: 'penguin', translation:'пингвин', img:'https://i.pinimg.com/originals/c6/96/41/c69641a5d9a63081e22a8ae51c145505.jpg'}]});// без бэкэнда
     }
 
     getCollectionForShow = () => {
@@ -89,12 +89,12 @@ class CollectionForWork extends Component {
             <div>
                 <Card isShow={true} curCard={curCard} deleteCard={this.deleteCard}/>
                 <div id="board" className="bottom-panel-management">
-                    <div id="speechBtn" className="bottom-panel-button board first" data-uk-button-checkbox data-uk-tooltip="{pos:'bottom'}">
+                    <div id="speechBtn" className="bottom-panel-button board first" >
                         <button id="btnVoice" className="uk-button uk-width-1-2" onClick={() => this.changeIndex(-1)}>
                             Назад
                         </button>
                     </div>
-                    <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox data-uk-tooltip="{pos:'bottom'}">
+                    <div id="speechBtn" className="bottom-panel-button" >
                         <button id="btnVoice" className="uk-button uk-width-1-2" onClick={() => this.changeIndex(1)}>
                             Вперед
                         </button>
@@ -109,12 +109,12 @@ class CollectionForWork extends Component {
         return (
             <div>
                 <Card isShow={false} isCheck ={this.state.isCheckCard} curCard={this.state.cardForCheck}/>
-                <div id="speechBtn" className="bottom-panel-button board first" data-uk-button-checkbox data-uk-tooltip="{pos:'bottom'}" >
+                <div id="speechBtn" className="bottom-panel-button board first"  >
                     <button id="btnVoice" className="uk-button no" onClick={() => this.setAnswer(false)}>
                         Не помню
                     </button>
                 </div>
-                <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox data-uk-tooltip="{pos:'bottom'}" >
+                <div id="speechBtn" className="bottom-panel-button"  >
                     <button id="btnVoice" className="uk-button yes" onClick={() => this.setAnswer(true)}>
                         Помню
                     </button>
@@ -127,14 +127,14 @@ class CollectionForWork extends Component {
         return(
             <div>
                 <Card isShow={false} isCheck ={this.state.isCheckCard} curCard={this.state.cardForCheck}/>
-                <div id="speechBtn" className="bottom-panel-button board first" data-uk-button-checkbox data-uk-tooltip="{pos:'bottom'}" >
+                <div id="speechBtn" className="bottom-panel-button board first"  >
                     <button id="btnVoice" className="uk-button uk-width-1-2" onClick={() => this.processAnswerUser(this.state.answerUser)}>
                         Продолжить
                     </button>
                 </div>
                 {
                     this.state.answerUser
-                    ? <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox data-uk-tooltip="{pos:'bottom'}" >
+                    ? <div id="speechBtn" className="bottom-panel-button"  >
                         <button id="btnVoice" className="uk-button uk-width-1-2" onClick={() => this.processAnswerUser(false)}>
                             Ошибся
                         </button>

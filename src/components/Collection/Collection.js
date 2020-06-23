@@ -55,16 +55,20 @@ class Collection extends React.Component{
 
     getCreateCard(){
         return(
-            <div>
+            <div className="createCard">
                 <form onSubmit={this.CreateCard}>
-                    <input className="input" type='text' name='word' placeholder='Enter your word' defaultValue='cat'/>
-                    <input  className="input" type='text' name='translation' placeholder='Enter your translation' defaultValue='кошка'/>
-                    <input  className="input" type='text' name='img' placeholder='Enter your ref on img' defaultValue='https://ichef.bbci.co.uk/news/320/cpsprodpb/582E/production/_109447522_catsmaincoonunfriendly.jpg'/>
-                    <button>
-                        Создать карточку
-                    </button>
+                    <div className="form">
+                    <input className="input createInput" type='text' name='word' placeholder='Enter your word' defaultValue='cat'/>
+                    <input  className="input createInput" type='text' name='translation' placeholder='Enter your translation' defaultValue='кошка'/>
+                    <input  className="input createInput" type='text' name='img' placeholder='Enter your ref on img' defaultValue='https://ichef.bbci.co.uk/news/320/cpsprodpb/582E/production/_109447522_catsmaincoonunfriendly.jpg'/>
+                    </div>
+                    <div id="speechBtn" className="bottom-panel-button" >
+                        <button id="btnVoice" className="uk-button uk-width-1-2 first">
+                            Создать карточку
+                        </button>
+                    </div>
                 </form>
-                <button onClick={() => this.setState({isCreateCard: false})}> Отмена </button>
+                <button id="btnVoice" className="uk-button uk-width-1-2" onClick={() => this.setState({isCreateCard: false})}> Отмена </button>
             </div>
         )
     }
@@ -77,26 +81,22 @@ class Collection extends React.Component{
                         <h2>{this.props.name}</h2>
                     </div>
                     <div className="bottom-panel-actions home-panel">
-                        <div id="speechBtn" className="bottom-panel-button home-card" data-uk-button-checkbox
-                             data-uk-tooltip="{pos:'bottom'}" >
+                        <div id="speechBtn" className="bottom-panel-button home-card"  >
                             <Link id="btnVoice" className="uk-button uk-width-1-1"
                                   to={`/show/${this.props.id}/${this.props.name}`}>Посмотреть коллекцию
                             </Link>
                         </div>
-                        <div id="speechBtn" className="bottom-panel-button home-card" data-uk-button-checkbox
-                             data-uk-tooltip="{pos:'bottom'}" >
+                        <div id="speechBtn" className="bottom-panel-button home-card"  >
                             <Link id="btnVoice" className="uk-button uk-width-1-1"
                                   to={`/check/${this.props.id}/${this.props.name}`}>Проверить себя
                             </Link>
                         </div>
-                        <div id="speechBtn" className="bottom-panel-button home-card" data-uk-button-checkbox
-                             data-uk-tooltip="{pos:'bottom'}" >
+                        <div id="speechBtn" className="bottom-panel-button home-card"  >
                             <button id="btnVoice" className="uk-button uk-width-1-1" onClick={this.onDelete}>
                                 Удалить коллекцию
                             </button>
                         </div>
-                        <div id="speechBtn" className="bottom-panel-button home-card" data-uk-button-checkbox
-                             data-uk-tooltip="{pos:'bottom'}" >
+                        <div id="speechBtn" className="bottom-panel-button home-card" >
                             <button id="btnVoice" className="uk-button uk-width-1-1" onClick={this.onCreateCard}>
                                 Добавить карточку в коллекцию
                             </button>

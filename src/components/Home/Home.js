@@ -3,7 +3,7 @@ import Collection from "../Collection/Collection";
 import './Home.css'
 import '../CollectionForWork/CollectionForWork.css' //и вот здесь смущает
 import cookie from 'react-cookies';
-import {Redirect} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 
 class Home extends React.Component {
@@ -19,7 +19,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         this.getCollectionsUser();
-        // this.setState({collections: [{id: 1, name: 'животные', ownerLogin: 'asas'}, {id: 2, name: 'люди', ownerLogin: 'asas'}]}); //бэк не работает
+        //this.setState({collections: [{id: 1, name: 'животные', ownerLogin: 'asas'},{id: 2, name: 'люди', ownerLogin: 'asas'}]}); //бэк не работает
     }
 
      getCollectionsUser = async () => {
@@ -85,10 +85,19 @@ class Home extends React.Component {
                     <h2>Добро пожаловать, {cookie.load('username')}!</h2>
                 </div>
                 <form onSubmit={this.onCreateCollectionServer}>
-                    <input className="input" type='text' name='nameCol' placeholder='Введите название коллекции' defaultValue='just Collection'/>
-                    <button>Создать</button>
+                    <div className="form">
+                    <input  className="input" type='text' name='nameCol' placeholder='Введите название коллекции' defaultValue='just Collection'/>
+                    </div>
+                    <div id="speechBtn" className="bottom-panel-button" >
+
+
+                        <button className="uk-button uk-width-1-2 first">
+                            Создать
+                        </button>
+
+                    </div>
                 </form>
-                <button onClick={()=>this.setState({isAddNewCollection: false})}>отмена</button>
+                <button  className="uk-button uk-width-1-2" onClick={()=>this.setState({isAddNewCollection: false})}>отмена</button>
             </div>
         )
     }
@@ -102,12 +111,15 @@ class Home extends React.Component {
             return this.getNewCollection();
         return (
             <div>
-                <div>
-                    {cookie.load('token') ? <button onClick={this.onClick}>Выйти</button> : ''}
-                </div>
+
                 <div id="game" >
+                    <div >
+                        {cookie.load('token') ?
+                            <button className="uk-button uk-width-1-2 game-but" onClick={this.onClick}>Выйти</button> : ''}
+                    </div>
                     <h2>Добро пожаловать, {cookie.load('username')}!</h2>
                     <h>Ваши коллекции:</h>
+
                 </div>
                 <div id="table" className="table" >
                     {curCollections}

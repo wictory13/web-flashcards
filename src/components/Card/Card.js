@@ -33,7 +33,7 @@ class Card extends React.Component {
                     </div>
                     <img src={this.props.curCard.img} height={150} alt={this.props.curCard.translation}/>
                     <div className="bottom-panel-actions">
-                        <div id="speechBtn" className="bottom-panel-button" data-uk-button-checkbox data-uk-tooltip="{pos:'bottom'}" >
+                        <div id="speechBtn" className="bottom-panel-button"  >
                             <button id="btnVoice" className="uk-button uk-width-1-1" onClick={this.deleteCurCard}>
                                 Удалить карточку
                             </button>
